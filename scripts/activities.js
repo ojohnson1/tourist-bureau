@@ -1,11 +1,11 @@
 "use strict"
 
-import {categories } from "./activitiesdata"
+import {activities, categories } from "./activitiesdata.js"
 const categoriesList=document.getElementById("categoriesList")
 
 window.onload = function () {
   initCategoriesDropdown();
- categoriesList.onchange= onCategoriesListChanged();
+ initActivitiesDropdown();
 };
 
 
@@ -17,7 +17,11 @@ for (let i = 0; i < numOfCategories; i++) {
 }}
 
 
-function onCategoriesListChanged (){
+function initActivitiesDropdown (){
+  let numOfActivities = activities.length;
+  for (let i = 0; i < numOfActivities; i++) {
+    let activityOptions = new Option(activities[i].name);
+    activitiesList.appendChild(activityOptions);
+  }}
 
-  
-}
+

@@ -55,7 +55,7 @@ function onActivitiesSelectionChanged() {
   descriptionField.innerText = selectedActivity[0].description;
   locationField.innerText = selectedActivity[0].location;
   priceField.innerText = selectedActivity[0].price;
-
+  
   if (selectedActivity[0].price > 0) {
     purchaseBtn.classList.toggle("d-block");
     purchaseBtn.classList.toggle("d-none");
@@ -68,11 +68,11 @@ function onActivitiesSelectionChanged() {
 function onPurchaseTicket(event) {
   event.preventDefault();
   let emailInput2=emailInput.value
-  let numOfTickets=ticketinput.value
-  let totalCost= numOfTickets * (priceField.value)
-  console.log(typeof totalCost)
-  const message = `Your credit card has been charged ${totalCost} for ${numOfTickets} to
-${nameField.value}. A confirmation email has been sent to ${emailInput2}.`;
+  let numOfTickets=(ticketinput.value)
+  let totalCost= numOfTickets * (priceField.innerText)
+  
+  const message = `Your credit card has been charged $${totalCost} for ${numOfTickets} to
+${nameField.innerText}. A confirmation email has been sent to ${emailInput2}.`;
 confirmationMessage.textContent=message
 
 }
